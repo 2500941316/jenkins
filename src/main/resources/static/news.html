@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title>新闻发布</title>
+    <style type="text/css">
+        .load {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            z-index: 10000;
+        / / display: none;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .loader {
+            width: 140px;
+            height: 140px;
+            /* border: 1px solid red; */
+            text-align: center;
+            position: absolute;
+            top: calc(50% - 70px);
+            left: calc(50% - 70px);
+            padding-top: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+
+        #loader-1 {
+            width: 60px;
+            height: 60px;
+        }
+
+        .load-msg {
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            font-size: 13px;
+            /* margin-top: 20px; */
+        }
+
+        svg path, svg rect {
+            fill: #17a085;
+        }
+    </style>
+    <!-- 引入相关样式表 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/editormd/css/editormd.css">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" media="screen" href="css/styles.css">
+    <!-- 引入相关javascript -->
+    <script src="https://cdn.jsdelivr.net/gh/yremp/editormd@1.0.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yremp/editormd/editormd.min.js"></script>
+</head>
+<body>
+
+<div id="show" style="display: none" class="load">
+    <div class="loader" title="2">
+        <svg version="1.1" id="loader-1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 50 50"
+             style="enable-background:new 0 0 50 50;" xml:space="preserve">
+			<path fill="#000"
+                  d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+				<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                  to="360 25 25" dur="0.6s" repeatCount="indefinite"/>
+			</path>
+		</svg>
+        <div class="load-msg"> 发布中,请稍后....</div>
+    </div>
+</div>
+
+<div id="wrapper">
+    <header id="header">
+        <div id="loginBar">
+            <div class="w960 tr">
+                <a onclick="logout()">注销</a>
+            </div>
+        </div>
+        <div id="headBox">
+            <div class="w960 oh">
+                <a href="#" class="fl mt10">上海仪电人工智能创新院官网发布平台</a>
+                <nav id="navs" class="fr">
+                    <a href="news.html">新闻发布</a>
+                    <a class="active" href="news.html">返回</a>
+                </nav>
+            </div>
+        </div>
+    </header><!-- // header end -->
+    <div id="test-editormd">
+        <textarea style="display:none;">
+---
+是是是
+
+</textarea>
+    </div>
+    <footer id="footer" class="w960 oh">
+        <span class="fl">© 2019 - 2020 上海仪电人工智能创新院</span>
+        <button style="margin-left: 10%" class="submit" onclick="preview()">预览</button>
+        <button style="margin-left: 3%" class="submit" onclick="applyNews()">发布</button>
+    </footer>
+</div>
+<!-- textarea 作为编辑器的容器 id="question-desc"和下方的js脚本editormd("question-desc")中id对应 -->
+<div class="form-group" id="question-desc">
+
+    <script type="text/javascript">
+        var testEditor;
+        $(function () {
+            testEditor = editormd("test-editormd", {
+                width: "90%",
+                height: 940,
+                syncScrolling: "single",
+                path: "https://cdn.jsdelivr.net/gh/yremp/editormd/lib/",
+                saveHTMLToTextarea: true,
+                emoji: true,
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "/uploadImage",
+                onload: function () {
+                    this.width("100%");
+                    this.height(680);
+                }
+            });
+        });
+
+
+
+        function preview() {
+
+        alert("预览功能！！")
+        }
+
+        function applyNews() {
+
+            alert("发布功能！！")
+        }
+
+
+    </script>
+</div>
+</body>
+</html>
