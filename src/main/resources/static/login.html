@@ -42,6 +42,7 @@
     }
 
     function login() {
+
         var username = $("input[name = 'username']");
         var password = $("input[name = 'password']");
         if (username.val()!="" || password.val()!="")
@@ -57,7 +58,7 @@
                     if(result.code === 200){
                         window.location.href="/news.html";
                     }else {
-                        alert('登录失败');
+                        alert('登录失败！！！');
                     }
                 },
             })
